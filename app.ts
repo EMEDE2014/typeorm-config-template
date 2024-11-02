@@ -4,12 +4,15 @@ class App {
   public express: express.Application;
 
   constructor() {
-    this.express();
+    this.express = express();
     this.middlewares();
     this.routes();
   }
 
-  middlewares() {}
+  middlewares() {
+    this.express.use(express.urlencoded({ extended: false }));
+    this.express.use(express.json());
+  }
 
   routes() {}
 }
